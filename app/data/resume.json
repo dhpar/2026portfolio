@@ -5,13 +5,14 @@
   "openTo": "Remote or Hybrid",
   "contact": {
     "email": "davhern@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/davidhparramon/"
+    "linkedin": "https://www.linkedin.com/in/davidhparramon/",
+    "github": "https://github.com/dhpar/"
   },
   "summary": "Senior Frontend/Full-stack engineer with 10+ years building React/Next.js applications, complex UI systems, and scalable SaaS products. Experience across USA and EU markets. Expertise in performance optimization, design systems, modern FE architectures, and product-focused development.",
   "skills": [
     {
       "title": "Frontend",
-      "tech": [ "React", "Next.js", "Gatsby", "TypeScript", "JavaScript (ES6+)", "jQuery", "Tailwind CSS", "SASS", "CSS Modules", "CSS-in-JS", "Formik", "Twig" ]
+      "tech": [ "React", "Next.js", "Gatsby", "TypeScript", "JavaScript (ES6+", "jQuery", "Tailwind CSS", "SASS", "CSS Modules", "CSS-in-JS", "Formik", "Twig" ]
     },
     {
       "title": "Backend & APIs",

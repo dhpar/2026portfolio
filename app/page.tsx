@@ -1,4 +1,9 @@
 import resume from "./data/resume.json";
+import LinkedinIcon from '../public/linkedin.svg';
+import EmailIcon from '../public/email.svg';
+import GithubIcon from '../public/github.svg';
+import LocationIcon from '../public/map-pin.svg';
+
 // start-0 left-0 h-full bg-zinc-200 dark:bg-zinc-900 w-auto flex flex-col items-center justify-center px-8 py-16 
 export default function Home() {
   return (
@@ -11,6 +16,14 @@ export default function Home() {
           {resume.title}
         </h2>
         <p>{resume.summary}</p>
+        <h2>Contact</h2>
+        <ul>
+          <li className="pt-4">
+            <LinkedinIcon /><a href={resume.contact.linkedin}>Linkedin</a>
+          </li>
+          <li>
+            <LocationIcon/>{resume.location}</li>
+        </ul>
       </aside>
       <main className="flex min-h-screen w-full flex-col items-center justify-center px-16 dark:bg-black snap-y">
         <section className="mb-16 w-full min-h-dvh snap-start flex flex-col justify-center">
