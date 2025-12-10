@@ -12,7 +12,11 @@
   "skills": [
     {
       "title": "Frontend",
-      "tech": [ "React", "Next.js", "Gatsby", "TypeScript", "JavaScript (ES6+", "jQuery", "Tailwind CSS", "SASS", "CSS Modules", "CSS-in-JS", "Formik", "Twig" ]
+      "tech": [ "React", "Next.js", "Gatsby", "Tanstack", "TypeScript", "JavaScript (ES6+", "jQuery", "Tailwind", "SASS", "CSS Modules", "CSS-in-JS", "Formik", "Twig" ]
+    },
+    {
+      "title": "AI & LLMs",
+      "tech": [ "MCP Integration", "AI/LLM Integrations", "RAG", "Image Recognition", "Content Generation", "Prompt Engineering", "OpenAI", "Azure AI", "Google Generative AI" ]
     },
     {
       "title": "Backend & APIs",
@@ -32,7 +36,7 @@
     },
     {
       "title": "Other Skills",
-      "tech": [ "AI/LLM Integrations", "Image Recognition", "Accessibility (WCAG)", "CI/CD pipelines" ]
+      "tech": [  "Accessibility (WCAG)", "CI/CD pipelines" ]
     }
   ],
   "experience": [
