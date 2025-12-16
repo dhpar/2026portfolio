@@ -2,9 +2,9 @@ import resume from "../data/resume.json";
 
 export function Skills () {
   return (
-    <ul className="pb-4">
+    <ul className="pb-8">
         {resume.skills.map((skill, i) => (
-        <li key={i} className="pb-4">
+        <li key={i} className="pb-8">
             <h4 className="pb-1">{skill.title}</h4>
             <ul className="flex flex-wrap gap-2">
                 {skill.tech.map((tech, j) => (

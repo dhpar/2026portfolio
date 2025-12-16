@@ -8,12 +8,12 @@ export function Experience () {
         <div className='pb-2'>
             <h4 className="font-bold text-lg text">{job.company}</h4>
             <h5 className="italic">{job.role}</h5>
-            <h6>
-            <span>{job.start}</span> - <span>{job.end}</span>
-            </h6>
+            <p>
+              <span>{job.start}</span> - <span>{job.end}</span>
+            </p>
         </div>
         
-        <ul>
+        <ul className="list-disc marker:text-amber-200 pl-4">
             {job.highlights.map((highlight,i)=> (
             <li key={i} className="list-disc list-inside">{highlight}</li>
             ))}
