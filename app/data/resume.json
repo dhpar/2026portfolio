@@ -63,7 +63,7 @@
       "highlights": [
         "Developed image/video file management system with React/Next.js and Node/GraphQL.",
         "Integrated AI image recognition and LLM-based content generation.",
-        "Migrated analytics to GA4 and built event-based tracking pipelines.",
+        "Migrated analytics to GA4 and built event-based tracking pipelines."
       ],
       "tech": [ "Next.js", "React", "Node.js", "GraphQL", "TypeScript", "GCP", "AWS", "PHP", "Drupal", "Twig", "AI APIs" ]
     },
@@ -90,7 +90,7 @@
       "highlights": [
         "Designed and built responsive, cross-browser websites.",
         "Created React-based promotional site and Android app.",
-        "Optimized front-end performance and accessibility.",
+        "Optimized front-end performance and accessibility."
       ],
       "tech": ["React", "HTML5", "CSS3", "SASS", "Android SDK"]
     },
@@ -103,13 +103,13 @@
       "highlights": [
         "Developed remote lab system with Python, PHP, PostgreSQL.",
         "Implemented video surveillance integration.",
-        "Documented MVP technical specifications.",
+        "Documented MVP technical specifications."
       ],
       "tech": ["Python", "PHP", "Moodle", "PostgreSQL", "VirtualBox", "Apache"]
     }
   ],
   "education": {
-    "degree": "Network Communications Engineering",
+    "degree": "Network Communications Engineering - Bachelors Degree",
     "link": "https://eetac.upc.edu/en/study/bachelors-deegrees/telecommunications-systems-1",    
     "institution": "UPC - Universitat Politecnica de Catalunya (Catalan Politecnics University)",
     "graduationYear": 2012,
