@@ -1,7 +1,8 @@
 "use client";
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import sectionProps from '../data/sectionsProps';
-import MenuIcon from '../../public/menu.svg';
+import MenuIcon from '../../public/icons/menu.svg';
+import Link from 'next/link';
 
 const Menu = () => {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -48,7 +49,7 @@ const Menu = () => {
         <ul className={`flex-col items-center w-full gap-8 bg-slate-950/30 backdrop-blur-sm border-amber-200 border px-4 py-2 rounded-4xl ${isMenuOpen ? 'flex' : 'hidden'}`}>
             {progresiveSectionProps.map(({ href, Icon, label }, i) => (
                 <li key={i} className='w-full'>
-                    <a href={`#${href}`} className="flex justify-center border-b border-solid border-transparent font-extrabold hover:border-amber-200 hover:text-amber-200 focus:bg-amber-200 focus:text-slate-950 focus:w-full p-2 rounded-lg">
+                    <a href={`#${href}`} className="flex justify-center border-b border-solid border-transparent font-extrabold hover:border-amber-200 hover:text-amber-200 focus:bg-amber-200 focus:text-slate-950 focus:w-full p-4 rounded-lg">
                         <Icon className='w-fit mr-2'/>
                         <span>{label}</span>
                     </a>
@@ -64,10 +65,11 @@ const Menu = () => {
             <ul className="lg:flex gap-8 fixed top-0 right-0 rounded-full border-amber-200 border mt-4 mr-4 bg-slate-950/30 backdrop-blur-sm">
                 {progresiveSectionProps.map(({ href, Icon, label }, i) => (
                     <li key={i} className='flex'>
-                        <a href={`#${href}`} className="flex border border-solid border-transparent  hover:bg-amber-200 hover:text-amber-900 hover:border hover:border-amber-900 hover:border-solid focus:bg-amber-200 focus:text-amber-900 focus:border focus:border-amber-900 focus:border-solid px-4 py-2 hover:rounded-full focus:rounded-full">
+                        <Link href={`#${href}`} className="flex border border-solid border-transparent capitalize font-extrabold
+                        hover:bg-amber-200 hover:text-slate-950 hover:border hover:border-slate-950 hover:border-solid focus:bg-amber-200 focus:text-slate-950 focus:border focus:border-slate-950 focus:border-solid px-4 py-2 hover:rounded-full focus:rounded-full">
                             <Icon className='w-fit mr-2' />
                             <span>{label}</span>
-                        </a>
+                        </Link>
                     </li>)
                 )}
             </ul>}
