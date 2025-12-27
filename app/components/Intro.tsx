@@ -23,7 +23,7 @@ export function Intro () {
         </div>
         <p>{resume.summary}</p>
       </div>
-      <ul className="border-r-2 border-solid border-amber-200 pr-2 justify-end">
+      <ul>
           {contactProps.map(({href, Icon, label}, i) => (
               <li key={i}>
                   <Link href={href} className="flex w-full items-center align-middle font-semibold focus:bg-amber-200 focus:text-slate-950 focus:*:text-slate-950 p-2">

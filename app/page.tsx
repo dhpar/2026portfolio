@@ -6,11 +6,16 @@ import sectionProps from "./data/sectionsProps";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  
+  const handleResize = () => setIsSmallScreen(window.innerWidth < 640);
+
   useEffect(() => {
-      typeof window !== 'undefined' && setIsSmallScreen(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
-  const progresiveSectionProps = isSmallScreen ? sectionProps : sectionProps.slice(1);
+
+  const progresiveSectionProps = 
+    isSmallScreen ? 
+      sectionProps : sectionProps.slice(1);
 
   return (
     <div className="flex md:min-h-screen bg-zinc-50 font-sans dark:bg-zinc-900 justify-center bg-[url(../public/background.png)] bg-fixed bg-center bg-repeat flex-col md:flex-row">

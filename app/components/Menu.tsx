@@ -1,61 +1,65 @@
 "use client";
-import { MouseEvent, useEffect, useRef, useState } from 'react';
+import { KeyboardEvent, MouseEvent, useEffect, useRef, useState } from 'react';
 import sectionProps from '../data/sectionsProps';
 import MenuIcon from '../../public/icons/menu.svg';
 import Link from 'next/link';
 
 const Menu = () => {
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const handleMenuButtonKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    const menuButtonRef = useRef<HTMLButtonElement>(null);
+    const handleMenuButtonKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            setIsMenuOpen(prev => {
-                console.log('Toggling menu from', prev, 'to', !prev);
-                return !prev
-            });
+            setIsMenuOpen(!isMenuOpen);
         }
     }
 
-    const handleMobileMenuChange = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        setIsMenuOpen(prev => {
-            console.log('Toggling menu from', prev, 'to', !prev);
-            return !prev
-        });
-    };
+    const handleMobileMenuChange = () => setIsMenuOpen(!isMenuOpen);
 
     const handleMenuClickOutside = (event: Event) => {
         const menuElement = document.getElementById('mobile-menu');
-        if (menuElement && !menuElement.contains(event.target as Node)) {
-            setIsMenuOpen(false);
-        }
+        setIsMenuOpen(!menuElement || menuElement.contains(event.target as Node));
     };
 
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 640);
+
     useEffect(() => {
-        typeof window !== 'undefined' && setIsSmallScreen(window.innerWidth < 640); 
+        window.addEventListener('resize', handleResize);
         document.addEventListener('click', handleMenuClickOutside);
-        return () =>
+        return () => {
+            window.removeEventListener('resize', handleResize);
             document.removeEventListener('click', handleMenuClickOutside);
+        }
     }, []);
 
-    const progresiveSectionProps = isSmallScreen ? sectionProps : sectionProps.slice(1);
+    const progresiveSectionProps = 
+        isSmallScreen ? 
+            sectionProps : sectionProps.slice(1);
 
     const MobileMenu = () => <>
-        <button onClick={handleMobileMenuChange} onKeyDown={handleMenuButtonKeyDown} className='text-amber-200 border-amber-200 border px-8 py-4 rounded-full bg-slate-950/30 backdrop-blur-sm z-10 w-fit self-end m-2 focus:bg-amber-200 focus:text-slate-950'>
+        <button 
+            onClick={handleMobileMenuChange} 
+            onKeyDown={handleMenuButtonKeyDown} 
+            className='text-amber-200 border-amber-200 border px-8 py-4 rounded-full bg-slate-950/30 backdrop-blur-sm z-10 w-fit self-end m-2 focus:bg-amber-200 focus:text-slate-950' 
+            ref={menuButtonRef} 
+            aria-label="Toggle menu"
+        >
             <MenuIcon />
         </button>
-        <ul className={`flex-col items-center w-full gap-8 bg-slate-950/30 backdrop-blur-sm border-amber-200 border px-4 py-2 rounded-4xl ${isMenuOpen ? 'flex' : 'hidden'}`}>
+        {isMenuOpen? 
+            <ul className="flex flex-col items-center w-full gap-8 bg-slate-950/30 backdrop-blur-sm border-amber-200 border px-4 py-2 rounded-4xl">
             {progresiveSectionProps.map(({ href, Icon, label }, i) => (
                 <li key={i} className='w-full'>
-                    <a href={`#${href}`} className="flex justify-center border-b border-solid border-transparent font-extrabold hover:border-amber-200 hover:text-amber-200 focus:bg-amber-200 focus:text-slate-950 focus:w-full p-4 rounded-lg">
+                    <Link href={`#${href}`} className="flex justify-center border-b border-solid border-transparent font-extrabold bg- hover:border-amber-200 hover:text-amber-200 focus:bg-amber-200 focus:text-slate-950 focus:w-full p-4 rounded-lg">
                         <Icon className='w-fit mr-2'/>
                         <span>{label}</span>
-                    </a>
+                    </Link>
                 </li>)
             )}
-        </ul>
+            </ul>
+            : null
+        }
     </>
     
     return (
